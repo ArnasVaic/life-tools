@@ -25,9 +25,9 @@ elseif(TARGET_GROUP STREQUAL debug)
         -Wstrict-aliasing              # Warn about unsafe type punning
         -Wunreachable-code             # Warn on code that will never be executed
         -Wthread-safety                # Warn on potential thread safety issues
-        -fsanitize=address,undefined   # AddressSanitizer + UndefinedBehaviorSanitizer
+        # -fsanitize=address,undefined   # AddressSanitizer + UndefinedBehaviorSanitizer
         -fsanitize=leak                # Detect memory leaks
-        -fsanitize=memory              # Detect uninitialized memory usage
+        # -fsanitize=memory              # Detect uninitialized memory usage
         -fstack-protector-strong       # Enable stack smashing protection
         -fno-omit-frame-pointer        # Keep frame pointer for better debugging
     )

@@ -35,4 +35,4 @@
 *.dSYM/
 
 # build dir
-bin/
+build/
