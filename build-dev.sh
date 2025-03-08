@@ -1,1 +1,0 @@
-cmake -GNinja -DTARGET_GROUP=test -DCMAKE_C_COMPILER=clang build/
