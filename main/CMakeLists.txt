@@ -3,7 +3,7 @@ add_executable(main
 )
 
 target_link_libraries(main
-    module_a
+    life_core
 )
 
 if(TARGET_GROUP STREQUAL release)

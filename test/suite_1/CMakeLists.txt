@@ -3,7 +3,7 @@ add_executable(suite_1_app
 )
 
 target_link_libraries(suite_1_app
-    module_a
+    life_core
     Unity
 )
 
