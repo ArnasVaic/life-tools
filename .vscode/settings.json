@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+      "types.h": "c",
+      "module_a.h": "c",
+      "stdio.h": "c",
+      "stdint.h": "c",
+      "life_core.h": "c",
+      "assert.h": "c"
+    }
+}
