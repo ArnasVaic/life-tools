@@ -4,12 +4,9 @@
 
 int main(void)
 {
-  u256_t a = lico_init_from_str(
-    "    "
-    " ## "
-    " ## "
-    "    "
-  );
+  config_t a = 0;
+
+  lico_init_klein_nb_mask(&a, 5, 0, 0);
 
   char str[100] = "";
   lico_render_to_str(&a, 4, str);
