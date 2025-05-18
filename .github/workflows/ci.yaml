@@ -1,0 +1,23 @@
+name: Run Tests
+
+on: push
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+
+      - name: Build tests
+        run: |
+          chmod +x ./build.sh
+          ./build.sh test
+          ninja -v -C build/test
+
+      - name: Run tests
+        run: ctest --test-dir build/test --verbose
