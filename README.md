@@ -19,3 +19,5 @@ To build cmake files run `./build.sh` script with a single argument for the type
 - `test` - builds tests
 
 Generated files will be placed in `build/<configuration>/`. Run `ninja -v` in this directory to compile the project.
+
+Run `ctest --verbose --test-dir build/test` from the project root directory after compiling the test configuration to run the tests.
