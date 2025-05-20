@@ -28,9 +28,12 @@ void lico_next(
   config_t const * const nb_masks
 );
 
+// Convert row column pair to index
+int lico_coord_to_index(int row, int col, int size);
+
 // Count live neighbours of a cell
 // located at index in a given configuration.
-int lico_count_neighbours(
+int lico_count_neighbors(
   config_t const * const config,
   int const index,
   config_t const * const nb_masks
@@ -40,25 +43,50 @@ int lico_count_neighbours(
 void lico_init_nb_masks(
   config_t * const nb_masks,
   int const size,
-  void (*init_mask)(
-    config_t * const mask,
+  void (*wrap_coordinate)(
+    int const row,
+    int const col,
     int const size,
-    int const index)
+    int * const new_row,
+    int * const new_col
+  )
 );
 
 // Initialize neighbour count mask for Klein bottle topology.
-void lico_init_klein_nb_mask(
+void lico_init_mask(
   config_t * const mask,
   int const size,
   int const row,
-  int const col
+  int const col,
+  void (*wrap_coordinate)(
+    int const row,
+    int const col,
+    int const size,
+    int * const new_row,
+    int * const new_col)
 );
 
 // Render configuration to a string
-void lico_render_to_str(
+void lico_render_config(
   config_t const * const config,
   int const size,
   char * const dest
+);
+
+// Render configuration bits to a string
+void lico_render_bits(
+  config_t const * const config,
+  int const size,
+  char * const dest
+);
+
+// Wrap given coordinate assuming a Klein-bottle topology
+void lico_wrap_klein(
+  int row,
+  int col,
+  int size,
+  int *const new_row,
+  int *const new_col
 );
 
 #endif // LIFE_CORE_H
