@@ -9,7 +9,7 @@ Using WSL is recommended.
 
 Required tools:
 ```shell
-sudo apt-get update && sudo apt-get install -y cmake ninja-build clang
+sudo apt-get update && sudo apt-get install -y cmake ninja-build clang-19
 ```
 
 To build cmake files run `./build.sh` script with a single argument for the type of configuration to build. Possible configurations:
