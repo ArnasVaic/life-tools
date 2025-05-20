@@ -5,6 +5,11 @@
       "stdio.h": "c",
       "stdint.h": "c",
       "life_core.h": "c",
-      "assert.h": "c"
-    }
+      "assert.h": "c",
+      "math.h": "c",
+      "string.h": "c"
+    },
+    "cSpell.words": [
+      "lico"
+    ]
 }
