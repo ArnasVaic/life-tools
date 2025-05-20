@@ -13,7 +13,7 @@ jobs:
           submodules: 'recursive'
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build clang-19
 
       - name: Build tests
         run: |
