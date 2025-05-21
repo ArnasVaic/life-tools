@@ -43,4 +43,16 @@ int lico_count_neighbors(
   config_t const * restrict nb_masks
 );
 
+// Find a repeating pattern given some initial configuration.
+// Returns the index to the first configuration in the loop.
+int lico_find_repeating(
+  config_t initial,
+  int const size,
+  config_t const * restrict nb_masks,
+  int ruleset,
+  config_t * restrict visited,
+  int visited_capacity,
+  int *loop_length
+);
+
 #endif // LIFE_CORE_H

@@ -1,4 +1,6 @@
 #include <life_core.h>
+#include <inttypes.h>
+#include <log.h>
 
 static config_t const one = 1;
 
@@ -58,5 +60,66 @@ inline int lico_count_neighbors(
 
   // Provide separate implementation for other bitsizes
 
+  return 0;
+}
+
+int lico_find_repeating(
+  config_t initial,
+  int const size,
+  config_t const * restrict nb_masks,
+  int ruleset,
+  config_t * restrict visited,
+  int visited_capacity,
+  int * loop_length
+) {
+  // Iterate over initial until one of the visited
+  // configurations matches the current one.
+
+  // Number of unique visited frames
+  int visited_count = 1;
+  visited[0] = initial;
+  config_t current = initial, next = 0;
+
+  while(1) {
+
+    lico_next(&current, &next, size, nb_masks, ruleset);
+
+    // Look for 'next' configuration within visited
+    // Linear search might be fastest option because
+    // Size of visited is relatively small.
+    // Need to benchmark this though.
+    for (int i = 0; i < visited_count; ++i) {
+
+      // Assuming loops themselves are much shorter
+      // than the total path from the initial configuration
+      // to the start of the loop, we'll look for the 'next'
+      // config in the visited array in reverse.
+      int reversed_index = visited_count - 1 - i;
+      if (visited[reversed_index] == next) {
+        *loop_length = i + 1;
+        return reversed_index;
+      }
+    }
+
+    // 'next' was not among visited frames,
+    // add it to visited frames and iterate
+    current = next;
+
+    if (visited_count == visited_capacity) {
+      log_error(
+        "Visited configuration buffer full [capacity=%d], "
+        "initial configuration: (high: 0x%" PRIx64 ", low: 0x%" PRIx64 ")",
+        visited_capacity,
+        initial >> 64,
+        (__uint64_t)initial
+      );
+      return -1; // Results are basically invalid
+    }
+
+    visited[visited_count++] = next;
+  }
+
+  // This loop has to finish because all configurations
+  // On a finite grid eventually enter a loop.
   return 0;
 }

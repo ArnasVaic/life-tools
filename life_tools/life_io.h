@@ -26,4 +26,10 @@ void lico_render_bits(
   char * const dest
 );
 
+// Render configuration as a hexadecimal number.
+void lico_render_hex(
+  config_t config,
+  char * const dest
+);
+
 #endif // LIFE_IO_H
