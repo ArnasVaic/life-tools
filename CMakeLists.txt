@@ -8,7 +8,7 @@ set(CMAKE_C_EXTENSIONS ON)
 
 set(TARGET_GROUP release CACHE STRING "Group to build")
 
-add_subdirectory(life_core)
+add_subdirectory(life_tools)
 
 if(TARGET_GROUP STREQUAL release)
   add_subdirectory(main)

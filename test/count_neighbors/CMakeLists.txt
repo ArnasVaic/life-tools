@@ -3,7 +3,7 @@ add_executable(count_neighbors_suite
 )
 
 target_link_libraries(count_neighbors_suite
-  life_core
+  life_tools
   Unity
 )
 
