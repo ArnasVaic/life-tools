@@ -1,6 +1,6 @@
 #include <unity.h>
 
-#include <life_core.h>
+#include <life_tools.h>
 
 const int size = 5;
 config_t nb_masks[size * size];
