@@ -1,3 +1,7 @@
 [submodule "external/Unity"]
 	path = external/Unity
 	url = https://github.com/ThrowTheSwitch/Unity.git
+
+[submodule "external/log.c"]
+	path = external/log.c
+	url = https://github.com/rxi/log.c

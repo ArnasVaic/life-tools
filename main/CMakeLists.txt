@@ -4,6 +4,7 @@ add_executable(main
 
 target_link_libraries(main
   life_tools
+  log.c
 )
 
 if(TARGET_GROUP STREQUAL release)

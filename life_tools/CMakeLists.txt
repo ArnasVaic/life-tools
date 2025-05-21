@@ -10,4 +10,5 @@ target_include_directories(life_tools PUBLIC
 
 target_link_libraries(life_tools
   m
+  log.c
 )
