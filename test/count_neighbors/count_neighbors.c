@@ -22,11 +22,11 @@ int main(void)
   lico_init_nb_masks(nb_masks, size, lico_wrap_klein);
 
   filled = lico_init_from_str(
-    "#####"
-    "#####"
-    "#####"
-    "#####"
-    "#####"
+    "OOOOO"
+    "OOOOO"
+    "OOOOO"
+    "OOOOO"
+    "OOOOO"
   );
 
   RUN_TEST(test_lico_count_klein_neighbors_should_return_the_same_count_anywhere);
