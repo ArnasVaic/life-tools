@@ -13,7 +13,7 @@ jobs:
           submodules: 'recursive'
 
       - name: Install dependencies
-      - uses: awalsh128/cache-apt-pkgs-action@latest
+        uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: cmake ninja-build clang-19
           version: 1.0
@@ -23,6 +23,7 @@ jobs:
           chmod +x ./build.sh
           ./build.sh test
           ninja -v -C build/test
+        shell: bash
 
       - name: Run tests
         run: ctest --test-dir build/test --verbose
